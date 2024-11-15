@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+
+    android:background="#F5F5DC">
+
+    <TextView
+        android:id="@+id/Autor"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gra w kości Autor:Adrian Wejzer"
+        android:background="#a52a2a"
+        android:textColor="@color/white"/>
+
+
+    <Button
+        android:id="@+id/rzutKośćmi"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="RZUĆ KOŚĆMI"
+        android:background="#D2691E"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/liczba1"
+            android:layout_margin="9dp"
+            android:layout_width="70dp"
+            android:layout_height="60dp"
+            android:text="?"
+            android:textAlignment="center"
+            android:textSize="55dp"
+            android:background="@color/white"/>
+
+        <TextView
+            android:id="@+id/liczba2"
+            android:layout_margin="9dp"
+            android:layout_width="70dp"
+            android:layout_height="60dp"
+            android:text="?"
+            android:textAlignment="center"
+            android:textSize="55dp"
+            android:background="@color/white"/>
+
+        <TextView
+            android:id="@+id/liczba3"
+            android:layout_margin="9dp"
+            android:layout_width="70dp"
+            android:layout_height="60dp"
+            android:text="?"
+            android:textAlignment="center"
+            android:textSize="55dp"
+            android:background="@color/white"/>
+
+        <TextView
+            android:id="@+id/liczba4"
+            android:layout_margin="9dp"
+            android:layout_width="70dp"
+            android:layout_height="60dp"
+            android:text="?"
+            android:textAlignment="center"
+            android:textSize="55dp"
+            android:background="@color/white"/>
+
+        <TextView
+            android:id="@+id/liczba5"
+            android:layout_margin="9dp"
+            android:layout_width="70dp"
+            android:layout_height="60dp"
+            android:text="?"
+            android:textAlignment="center"
+            android:textSize="55dp"
+            android:background="@color/white"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/wynikLosowania"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:text="Wynik tego losowania: "/>
+    <TextView
+        android:id="@+id/wynikGry"
+        android:layout_width="160dp"
+        android:layout_height="25dp"
+        android:text="Wynik gry: "/>
+    <TextView
+        android:id="@+id/ileRazy"
+        android:layout_width="160dp"
+        android:layout_height="25dp"
+        android:text="Ile Razy: "/>
+    <Button
+        android:id="@+id/reset"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:text="RESET"
+        android:background="#D2691E"/>
+
+</LinearLayout>
