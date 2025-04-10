@@ -1,44 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".MainActivity"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:gravity="center">
 
-    <EditText
-        android:id="@+id/editTextName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="imię"
-        android:inputType="textPersonName"/>
-
-    <EditText
-        android:id="@+id/editTextEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Adres e-mail"
-        android:inputType="textEmailAddress"/>
-
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Podaj hasło"
-        android:inputType="textPassword"/>
-
-    <EditText
-        android:id="@+id/checkpassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Powtórz hasło"
-        android:inputType="textPassword"/>
 
     <Button
-        android:id="@+id/buttonSubmit"
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Wyślij" />
+        android:text="zwykłe powiadomienie" />
 
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="dłuuuuugie powiadomienie" />
 
-
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="zdjęcie z powiadomieniem" />
 </LinearLayout>
