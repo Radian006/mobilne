@@ -2,38 +2,88 @@ package com.example.zadanie9;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.RadioButton;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import android.widget.TimePicker;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.LinkedList;
+
 public class MainActivity extends AppCompatActivity {
 
-    private TextView wiek, result;
-    private EditText imieNazwisko, cel;
-    private SeekBar sb;
-    private RadioButton pies, kot, swinkaMorska;
+    private ListView lv;
+    private ArrayAdapter<String> lvAdapter;
+    private LinkedList<String> settingNames;
+    private LinkedList<Integer> settingValues;
+    private LinkedList<String> settingUnits;
+    private LinkedList<String> displayItems;
+
+    private TextView editTitle, valueBarValue;
+    private SeekBar valueBar;
+
+    private int selectedItemID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TimePicker tp = findViewById(R.id.time);
-        tp.setIs24HourView(true);
-        tp.setHour(16);
-        tp.setMinute(0);
+        selectedItemID = -1;
 
-        wiek = findViewById(R.id.wiek);
-        sb = findViewById(R.id.seekBar);
-        sb.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        lv = findViewById(R.id.listview);
+        editTitle = findViewById(R.id.editTitle);
+        valueBar = findViewById(R.id.valueBar);
+        valueBarValue = findViewById(R.id.valueBarValue);
+
+        editTitle.setText("Wybierz opcje:");
+        valueBarValue.setText("Wybierz opcje");
+        valueBar.setEnabled(false);
+
+        settingNames = new LinkedList<>();
+        settingValues = new LinkedList<>();
+        settingUnits = new LinkedList<>();
+        displayItems = new LinkedList<>();
+
+        settingNames.add("Jasność ekranu");
+        settingNames.add("Głośność dźwięków");
+        settingNames.add("Czas automatycznej blokady");
+
+        settingValues.add(50);
+        settingValues.add(80);
+        settingValues.add(30);
+
+        settingUnits.add("%");
+        settingUnits.add("%");
+        settingUnits.add("s");
+
+        for(int i=0; i< settingNames.size(); i++){
+            displayItems.add(settingNames.get(i) + ": " + settingValues.get(i) + settingUnits.get(i));
+        }
+
+        lvAdapter = new ArrayAdapter<>(this, R.layout.task_layout, R.id.listViewItem, displayItems);
+
+        lv.setAdapter(lvAdapter);
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                selectedItemID = i;
+                editTitle.setText("Edytujesz: " + settingNames.get(i));
+                valueBar.setEnabled(true);
+                valueBar.setProgress(settingValues.get(i));
+                valueBarValue.setText("Wartość: " + settingValues.get(i));
+            }
+        });
+
+        valueBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                wiek.setText(String.valueOf(i));
+                if(b && selectedItemID!=-1){
+                    valueBarValue.setText("Wartość: " + i);
+                }
             }
 
             @Override
@@ -43,54 +93,11 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
-        });
-
-        pies = findViewById(R.id.pies);
-        kot = findViewById(R.id.kot);
-        swinkaMorska = findViewById(R.id.swinkaMorska);
-
-        pies.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                sb.setMax(18);
-                kot.setChecked(false);
-                swinkaMorska.setChecked(false);
-            }
-        });
-        kot.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                sb.setMax(20);
-                pies.setChecked(false);
-                swinkaMorska.setChecked(false);
-            }
-        });
-        swinkaMorska.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                sb.setMax(9);
-                pies.setChecked(false);
-                kot.setChecked(false);
-            }
-        });
-
-        result = findViewById(R.id.result);
-        imieNazwisko = findViewById(R.id.imie_nazwisko);
-        cel = findViewById(R.id.cel);
-        findViewById(R.id.ok).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String zwierze;
-                if(pies.isChecked()){
-                    zwierze = "pies";
-                }else if(kot.isChecked()){
-                    zwierze = "kot";
-                }else{
-                    zwierze = "wydra";
+                if(selectedItemID!=-1){
+                    settingValues.set(selectedItemID, seekBar.getProgress());
+                    displayItems.set(selectedItemID, settingNames.get(selectedItemID)+": "+settingValues.get(selectedItemID)+settingUnits.get(selectedItemID));
+                    lvAdapter.notifyDataSetChanged();
                 }
-                result.setText(imieNazwisko.getText() + " z " + zwierze + " lat: " + wiek.getText() +" o godzinie: "+ tp.getHour() + ":"+tp.getMinute() + " w celu: " + cel.getText());
             }
         });
     }
