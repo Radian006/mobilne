@@ -1,36 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_margin="16dp">
+    tools:context=".MainActivity"
+    >
+
 
     <ListView
-        android:id="@+id/listview"
+        android:id="@+id/settingsListView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <TextView
-        android:id="@+id/editTitle"
+        android:id="@+id/editingLabelTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Wybierz opcje"/>
+        android:text="Wybierz opcjęz listy powyżej"
+        android:gravity="center"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        />
 
     <SeekBar
-        android:id="@+id/valueBar"
+        android:id="@+id/valueSeekBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:max="100"
-        />
+        android:gravity="center"/>
 
     <TextView
-        android:id="@+id/valueBarValue"
+        android:id="@+id/seekBarValueTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:text="Wartość: "
-        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginTop="13dp"
         />
+
 </LinearLayout>
