@@ -1,109 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".MainActivity"
     android:orientation="vertical"
-    android:gravity="center"
-    android:background="#90EE90">
+    android:gravity="center">
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Wizyta u weterynarza"
-        android:textSize="30dp"
-        android:background="#2E8B57"
-        android:padding="10dp"
-        />
-
+        android:text="Wizyta u Weterynarza" />
     <EditText
-        android:id="@+id/imie_nazwisko"
-        android:layout_height="wrap_content"
+        android:id="@+id/daneWlasciciela"
         android:layout_width="wrap_content"
-        android:hint="Imie i nazwisko właściciela..."
-        />
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:hint="Imie i Nazwisko Waściciela" />
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-        <RadioButton
-            android:id="@+id/pies"
+        android:orientation="vertical"
+        android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_width="0dp"
-            android:text="pies"
-            android:layout_weight="1"
-            />
-        <RadioButton
-            android:id="@+id/kot"
-            android:layout_height="wrap_content"
-            android:layout_width="0dp"
-            android:text="kot"
-            android:layout_weight="1"
-            />
-        <RadioButton
-            android:id="@+id/swinkaMorska"
-            android:layout_height="wrap_content"
-            android:layout_width="0dp"
-            android:text="świnka morska"
-            android:layout_weight="1"
-            />
+            android:text="Gatunek:"/>
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:gravity="center"
+        android:orientation="vertical">
         <TextView
-            android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:text="Ile ma lat"
-            android:textSize="20dp"
-            android:layout_marginEnd="5dp"
-            />
-
-        <TextView
-            android:id="@+id/wiek"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="0"
-            android:textSize="20dp"
-            />
+            android:text="Ile ma lat?"/>
 
         <SeekBar
-            android:id="@+id/seekBar"
-            android:layout_height="wrap_content"
+            android:id="@+id/suwakWiek"
             android:layout_width="match_parent"
-            android:max="20"
-            />
+            android:layout_height="wrap_content"
+            android:max="20"/>
+
+        <TextView
+            android:id="@+id/napisWiek"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"/>
     </LinearLayout>
 
     <EditText
-        android:id="@+id/cel"
+        android:id="@+id/wpiszCelWizyty"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_width="250dp"
-        android:hint="Cel wizyty..."
-        />
+        android:hint="Cel wizyty"/>
 
     <TimePicker
-        android:id="@+id/time"
+        android:id="@+id/wybierzGodzine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:timePickerMode="spinner" />
 
     <Button
-        android:id="@+id/ok"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="OK"
-        />
-
-    <TextView
-        android:id="@+id/result"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        />
+        android:id="@+id/zatwierdz"
+        android:text="Ok"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>
