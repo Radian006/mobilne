@@ -51,6 +51,9 @@ public class MainActivity extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if(position==1){
+                    suwakWiek.setMax(20);
+                }
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -73,9 +76,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
                 if(iloscWSuwaku!=-1){
-                    napisWiek.setText("Lat: "+String.valueOf(suwakWiek.getProgress()));
+                    napisWiek.setText("Lat: "+suwakWiek.getProgress());
                 }
             }
         });
+
     }
 }
