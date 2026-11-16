@@ -1,4 +1,4 @@
-package com.example.kostki; // <- ZMIEŃ na nazwę pakietu ze swojego projektu
+package com.example.kostki;
 
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private GridLayout gridKostki;
     private TextView textViewWyniki;
 
-    // kolekcja przechowująca wylosowane wyniki
+    
     private final ArrayList<Integer> wyniki = new ArrayList<>();
     private final Random random = new Random();
 
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         Button buttonRosnaco = findViewById(R.id.buttonRosnaco);
         Button buttonMalejaco = findViewById(R.id.buttonMalejaco);
 
-        // siatka: maksymalnie 5 kostek w jednym wierszu
+        
         gridKostki.setColumnCount(MAX_W_WIERSZU);
 
         buttonLosuj.setOnClickListener(v -> losuj());
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    // ---------- Losowanie ----------
+    
 
     private void losuj() {
         String tekst = editTextLiczbaKostek.getText().toString().trim();
@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        // nowe losowanie zastępuje poprzednie wyniki
+        
         wyniki.clear();
         for (int i = 0; i < liczba; i++) {
             wyniki.add(random.nextInt(6) + 1); // 1..6
@@ -102,9 +102,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    // ---------- Własne algorytmy sortowania ----------
-
-    // Sortowanie bąbelkowe - rosnąco
+    
     private void sortujRosnaco(ArrayList<Integer> lista) {
         int n = lista.size();
         for (int i = 0; i < n - 1; i++) {
@@ -116,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    // Sortowanie przez wybieranie - malejąco
+    
     private void sortujMalejaco(ArrayList<Integer> lista) {
         int n = lista.size();
         for (int i = 0; i < n - 1; i++) {
@@ -138,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
         lista.set(b, pomocnicza);
     }
 
-    // ---------- Wyświetlanie ----------
+    
 
     private void odswiezWidok() {
         // lista wyników oddzielona przecinkami
