@@ -139,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
     
 
     private void odswiezWidok() {
-        // lista wyników oddzielona przecinkami
+        
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < wyniki.size(); i++) {
             if (i > 0) sb.append(", ");
@@ -147,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
         }
         textViewWyniki.setText(sb.toString());
 
-        // kostki w siatce
+        
         gridKostki.removeAllViews();
         int rozmiar = dpNaPx(48);
         int margines = dpNaPx(4);
